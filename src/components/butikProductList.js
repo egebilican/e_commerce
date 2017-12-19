@@ -54,7 +54,6 @@ function mapStateToProps(state, ownProps) {
         return b.price - a.price;
       }
     });
-  console.log(state.order);
   return { products, order: state.order };
 }
 

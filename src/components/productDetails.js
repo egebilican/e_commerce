@@ -5,30 +5,40 @@ import Swiper from 'react-id-swiper';
 
 const styles = {
   productContainer: {
-    display:'flex', 
+    display: 'flex',
     justifyContent: 'center',
-    alignItems:'center',
-    flexDirection: 'column' ,
+    alignItems: 'center',
+    flexDirection: 'column'
   },
   imgStyle: {
     height: 'auto',
-    width: '100%',
+    width: '100%'
   },
   textStyle: {
-    flex:1,
+    flex: 1
   },
-  swiperContainer : {
-    flex:1,
-    width: '80vw',
+  swiperContainer: {
+    flex: 1,
+    width: '80vw'
+  },
+  marketPriceStyle: {
+    color: 'red'
   }
 };
 
 class ProductDetails extends Component {
   render() {
-    const { title, price, picUrl, picUrl2, picUrl3 } = this.props.product;
+    const {
+      title,
+      price,
+      marketPrice,
+      picUrl,
+      picUrl2,
+      picUrl3
+    } = this.props.product;
     const params = {
       spaceBetween: 30,
-      centeredSlides: true,      
+      centeredSlides: true,
       pagination: {
         el: '.swiper-pagination',
         clickable: true
@@ -36,36 +46,28 @@ class ProductDetails extends Component {
     };
     return (
       <div>
-      <Header back="true" goBack={()=> this.props.history.goBack()}/>        
-      <div style={styles.productContainer}>
-        <div style={styles.swiperContainer}>
-        
-          <Swiper {...params}>
-            <div>
-              <img 
-                src={picUrl} 
-                alt="product" 
-                style={styles.imgStyle} />
+        <Header back="true" goBack={() => this.props.history.goBack()} />
+        <div style={styles.productContainer}>
+          <div style={styles.swiperContainer}>
+            <Swiper {...params}>
+              <div>
+                <img src={picUrl} alt="product" style={styles.imgStyle} />
+              </div>
+              <div>
+                <img src={picUrl2} alt="product" style={styles.imgStyle} />
+              </div>
+              <div>
+                <img src={picUrl3} alt="product" style={styles.imgStyle} />
+              </div>
+            </Swiper>
+          </div>
+          <div>
+            <div style={styles.textStyle}>{title}</div>
+            <div style={styles.marketPriceStyle}>
+              Piyasa fiyati: {marketPrice} TL
             </div>
-            <div>
-              <img
-                src={picUrl2}
-                alt="product"
-                style={styles.imgStyle}
-              />
-            </div>
-            <div>
-              <img
-                src={picUrl3}
-                alt="product"
-                style={styles.imgStyle}
-              />
-            </div>
-          </Swiper>  
-          </div>      
-        <div style={styles.textStyle}>{title}</div>
-        <div style={styles.textStyle}>{price}</div>
-        
+            <div style={styles.textStyle}>{price} TL</div>
+          </div>
         </div>
       </div>
     );

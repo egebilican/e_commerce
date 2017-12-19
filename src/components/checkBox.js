@@ -5,6 +5,7 @@ export default props => {
   <div>
     <input 
     type="checkbox"
+    defaultChecked
     onClick={props.onClick}
     />
     <label>{props.category}</label>

@@ -14,9 +14,7 @@ export default props => {
 
 const styles = {
   boxStyle: {
-    border: '1px solid black',
     flex: '1 1 100vw',
-    height: '20vh'
 
   },
   imgStyle: {
